@@ -16,7 +16,9 @@ struct LocationsView: View {
             NavigationView {
                 List {
                     ForEach(model.restaurants, id: \.self) { restaurant in
-                        RestaurantView(restaurant)
+                        NavigationLink(destination: ReservationForm(restaurant)) {
+                            RestaurantView(restaurant)
+                        }
                     }
                 } // 3
                 .navigationBarTitle("")
