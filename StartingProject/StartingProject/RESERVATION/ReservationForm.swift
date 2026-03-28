@@ -51,7 +51,7 @@ struct ReservationForm: View {
                                   formatter: NumberFormatter())
                         .keyboardType(.numberPad)
                         .onChange(of: party) { newValue in
-                            if newValue == 0 {
+                            if newValue < 1 {
                                 party = 1
                             }
                         }
@@ -155,7 +155,6 @@ struct ReservationForm: View {
             } message: {
                 Text(errorMessage)
             }
-
         }
         .onAppear {
             model.displayingReservationForm = true
