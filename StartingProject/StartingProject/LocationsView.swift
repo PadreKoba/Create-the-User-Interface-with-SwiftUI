@@ -14,7 +14,11 @@ struct LocationsView: View {
             .cornerRadius(20)
             
             NavigationView {
-                EmptyView() // 3
+                List {
+                    ForEach(model.restaurants, id: \.self) { restaurant in
+                        RestaurantView(restaurant)
+                    }
+                } // 3
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
             }
