@@ -150,9 +150,12 @@ struct ReservationForm: View {
             .onChange(of: mustChangeReservation) { _ in
                 model.reservation = temporaryReservation
             }
-            
-            // add an alert after this line
-            
+            .alert("Error", isPresented: $showFormInvalidMessage) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(errorMessage)
+            }
+
         }
         .onAppear {
             model.displayingReservationForm = true
