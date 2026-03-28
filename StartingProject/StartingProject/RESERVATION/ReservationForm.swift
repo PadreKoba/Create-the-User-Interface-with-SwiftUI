@@ -50,7 +50,11 @@ struct ReservationForm: View {
                                   value: $party,
                                   formatter: NumberFormatter())
                         .keyboardType(.numberPad)
-                        // add a modifier here
+                        .onChange(of: party) { newValue in
+                            if newValue == 0 {
+                                party = 1
+                            }
+                        }
                     }
                     
                     
